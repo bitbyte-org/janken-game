@@ -1,0 +1,40 @@
+<html>
+<head>
+<script>
+    function R_click (PjankenR){
+
+        let janken = ["グー","チョキ","パー"];
+        let jankenR = Math.floor(Math.random()*3);
+
+        let Pjanken = ["グー","チョキ","パー"];
+
+        document.getElementById("myhand").innerHTML = "あなたは" + Pjanken[PjankenR] + "を出しました";
+        document.getElementById("result").innerHTML = "相手は" + janken[jankenR] + "を出しました";
+    
+        if(jankenR === PjankenR){
+            document.getElementById("shouhai").innerHTML = "引き分け";
+        }else if(jankenR == 2 && PjankenR == 0){
+            document.getElementById("shouhai").innerHTML = "負け";
+        }else if(jankenR > PjankenR){
+            document.getElementById("shouhai").innerHTML = "勝ち";
+        }else if(jankenR == 0 && PjankenR == 2){
+            document.getElementById("shouhai").innerHTML = "勝ち";
+        }else{
+            document.getElementById("shouhai").innerHTML = "負け";
+        }
+    }
+
+</script>
+
+</head>
+
+<body>
+    <h3>ジャンケンゲーム</h3>
+    <button onclick = "R_click(0);"> グー</button>
+    <button onclick = "R_click(1);"> チョキ</button>
+    <button onclick = "R_click(2);"> パー</button>
+    <div id = "myhand"></div>
+    <div id = "result"></div>
+    <div id = "shouhai"></div>
+</body>
+</html> 
